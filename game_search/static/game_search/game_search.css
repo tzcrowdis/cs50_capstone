@@ -1,0 +1,743 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+
+    font-family: "Lucida Console";
+
+    margin: 0;
+}
+
+#body {
+    height: 100%;
+    width: 100%;
+}
+
+#header {
+    background: linear-gradient(to bottom, black 85%, transparent 100%);
+    
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 150px;
+    top: 0;
+}
+
+.button:link, .button:visited {
+    color: whitesmoke;
+    outline: 2px solid whitesmoke;
+    text-decoration: underline;
+
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin: 10px;
+
+    float: right;
+}
+
+.button:hover {
+    text-decoration: none;
+}
+
+.anchor{
+    display: block;
+    height: 150px;
+    margin-top: -150px;
+    visibility: hidden;
+}
+
+/*
+navigation bar styling
+*/
+
+.nav-container {
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* 
+search bar styling
+ */
+
+.search-container {
+    max-width: 100%;
+    width: 500px;
+    height: 70px;
+
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    margin-bottom: 0px;
+
+    font-family: "Lucida Console";
+}
+
+input[type=search] {
+    width: 100%;
+
+    border: 0;
+    outline: 2px solid whitesmoke;
+
+    padding: 10px;
+
+    text-align: center;
+    color: whitesmoke;
+
+    background-color: black;
+
+    font-family: "Lucida Console";
+    font-size: large;
+}
+
+#submit-search {
+    background-color: transparent;
+    outline: 2px solid whitesmoke;
+    border: 0;
+
+    position: absolute;
+    right: 5px;
+
+    color: whitesmoke;
+    font-family: "Lucida Console";
+    font-size: larger;
+
+    padding-bottom: 2px;
+
+    height: 30px;
+    top: 5px;
+
+    text-decoration: underline;
+}
+
+#submit-search:hover {
+    text-decoration: none;
+}
+
+#search-input::placeholder {
+    text-align: center; 
+    color: whitesmoke;
+}
+
+#search-input:focus::placeholder {
+    color: transparent;
+}
+
+/*
+track button
+*/
+
+#track {
+    position: absolute;
+    left: 42%;
+    margin: 10px;
+
+    background-color: black;
+    color: whitesmoke;
+    outline: 2px solid whitesmoke;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: large;
+    font-family: "Lucida Console";
+
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    animation: fadeIn 1s linear 1s both;
+}
+
+#track:hover {
+    text-decoration: none;
+}
+
+/*
+content styling
+*/
+
+#content-container {
+    color: whitesmoke;
+    
+    height: 100%;
+    width: 100%;
+}
+
+#loading {
+    visibility: hidden;
+
+    text-align: center;
+
+    margin-top: 150px;
+}
+
+#loading * {
+    color: whitesmoke;
+    font-size: larger;
+}
+
+#dot1 {
+    opacity: 0;
+    animation: blinker 1.5s step-start infinite;
+}
+
+#dot2 {
+    opacity: 0;
+    animation: blinker 1.5s step-start 0.25s infinite;
+}
+
+#dot3 {
+    opacity: 0;
+    animation: blinker 1.5s step-start 0.5s infinite;
+}
+
+.page-container{
+    outline: 3px solid whitesmoke;
+
+    max-width: 100%;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 50px;
+
+    height: 450px;
+
+    cursor: default;
+}
+
+.rippler {
+    outline: 3px solid whitesmoke !important;
+    color: whitesmoke !important;
+    background-color: transparent !important;
+
+    position:absolute;
+    z-index:-1;
+    
+    max-width: 100%;
+    width: 600px;
+    height: 450px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    animation: ripple 2s linear infinite 1s;
+}
+
+#page-nav-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    margin: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    animation: fadeIn 1s linear 1s both;
+}
+
+#up {
+    background-color: black;
+}
+
+#down {
+    background-color: black;
+}
+
+/*
+steam styling
+*/
+
+#steam {
+    background-color: #1b2838;
+
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+
+    animation: fadeInUp 1s ease-in-out 0s both;
+
+    position: relative;
+}
+
+#steam * {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#steam-title {
+    font-size: 26px;
+    font-weight: normal;
+
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+#steam-price-container1 {
+    background-image: linear-gradient( -60deg, rgba(226,244,255,0.3) 5%,rgba(84, 107, 115, 0.3) 95%);
+    border-radius: 4px;
+    padding: 16px;
+    padding-bottom: 26px;
+
+    position: relative;
+
+    font-size: 21px;
+}
+
+#steam-price-container2 {
+    background-color: black;
+    border-radius: 2px;
+
+    color: #c6d4df;
+    font-size: 15px;
+
+    padding-top: 4px;
+    padding-left: 12px;
+    padding-right: 4px;
+    height: 32px;
+
+    position: absolute;
+    right: 16px;
+    bottom: -17px;
+}
+
+#steam-price {
+    margin: 0;
+    margin-top: 5px;
+    float: left;
+}
+
+#steam-link {
+    background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+    text-decoration: none;
+    color: #d2efa9;
+    font-size: 15px;
+
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-right: 0px;
+    border-radius: 2px;
+    border: none;
+    padding: 0 15px;
+
+    height: 90%;
+    line-height: 30px;
+
+    cursor: pointer;
+}
+
+#steam-link:hover {
+    color: white;
+}
+
+#steam-description {
+    position: absolute;
+    top: 59.6px;
+    right: 0;
+    z-index: -1;
+
+    max-width: 31%;
+    max-height: 250px;
+    overflow: hidden;
+    margin-left: 0px;
+
+    font-size: 13px;
+}
+
+#steam-image {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+
+    margin-right: 0px;
+    margin-bottom: 20px;
+}
+
+#steam-ripple-1 {
+    animation: ripple 2s linear infinite 1s;
+}
+
+#steam-ripple-2 {
+    animation: ripple 2s linear infinite 2s;
+}
+
+#steam-ripple-3 {
+    animation: ripple 2s linear infinite 3s;
+}
+
+/*
+abandonware styling
+*/
+
+#abandonware {
+    font-family: "Franklin Gothic Medium", "Arial Black", sans-serif;
+    background-color: #EFEEE9;
+    color: #322209;
+
+    position: relative;
+
+    animation: fadeInUp 1s ease-in-out 1.5s both;
+}
+
+#abandonware * {
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: white;
+}
+
+.ab-divider {
+    width: 75%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#abandonware-title {
+    font-size: 46px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 15px;
+    height: 50px;
+    overflow: hidden;
+}
+
+#abandonware-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#ab-desc-header {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    padding-top: 0;
+
+    font-size: 26px;
+}
+
+#abandonware-description {
+    overflow: hidden;
+
+    height: 150px;
+    width: 66%;
+}
+
+#abandonware-link {
+    background-color: orange;
+    border: 2px solid #32220b;
+    box-shadow: 1px 2px 0 rgba(0, 0, 0, 1);
+
+    color: #32220b;
+    text-decoration: none;
+    text-shadow: 1px 2px 0 rgba(255, 255, 255, 0.5);
+    font-size: 23px;
+
+    float: inline-end;
+    position: absolute;
+    bottom: 15px;
+    right: -15px;
+    margin-left: 0;
+
+    width: 170px;
+    height: 65px;
+
+    text-align: center;
+    line-height: 30px;
+}
+
+#abandonware-link:hover {
+    text-decoration: underline;
+}
+
+#abandonware-ripple-1 {
+    animation: ripple 2s linear infinite 2.5s;
+}
+
+#abandonware-ripple-2 {
+    animation: ripple 2s linear infinite 3.5s;
+}
+
+#abandonware-ripple-3 {
+    animation: ripple 2s linear infinite 4.5s;
+}
+
+/*
+gog styling
+*/
+
+#gog {
+    font-family: sans-serif;
+    color: #212121;
+
+    background-color: #d9dada;
+
+    animation: fadeInUp 1s ease-in-out 1.5s both;
+}
+
+#gog * {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#gog-shadow-container {
+    margin: 0 0 0 0;
+
+    box-shadow: 0px -20px 100px 20px rgba(55, 55, 55, 0.697);    
+}
+
+#gog-shadow-hider {
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    margin-left: 0;
+    margin-right: 0;
+    height: 100%;
+}
+
+#gog-title {
+    font-size: 36px;
+    font-weight: 700;
+
+    width: 60%;
+}
+
+#gog-description {
+    margin-top: 12px;
+
+    height: 82px;
+
+    overflow: hidden;
+}
+
+#gog-image {
+    height: 70%;
+    width: 100%;
+    object-fit: cover;
+
+    margin: 0;
+    padding: 0;
+    display: block;
+
+    position: relative;
+    z-index: -1;
+}
+
+#gog-price-container {
+    background-color: #e7e7e7;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.696);
+    outline: 1px solid rgba(128, 128, 128, 0.685);
+
+    color: #404040;
+    font-size: 36px;
+
+    position: absolute;
+    left: 62.5%;
+    top: 56%;
+
+    height: 25%;
+    width: 35%;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#gog-link {
+    background: linear-gradient(-180deg, #9fbf00, #80ab00 91%);
+    border-radius: 5px;
+
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+
+    margin: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
+}
+
+#gog-link:hover {
+    background: linear-gradient(180deg, #a7c900, #88b500);
+}
+
+#gog-ripple-1 {
+    animation: ripple 2s linear infinite 1.75s;
+}
+
+#gog-ripple-2 {
+    animation: ripple 2s linear infinite 2.75s;
+}
+
+#gog-ripple-3 {
+    animation: ripple 2s linear infinite 3.75s;
+}
+
+/*
+tracked page
+*/
+
+#tracked-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.tracked-table {
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    border-collapse: collapse;
+
+    margin: 25px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 450px;
+    overflow: hidden;
+}
+
+.tracked-table * {
+    border: 2px solid whitesmoke;
+    border-collapse: collapse;
+
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.tracked-link {
+    text-decoration: underline;
+    cursor: pointer;
+
+    width: 70%;
+}
+
+.tracked-link:hover {
+    text-decoration: none;
+}
+
+/*
+login register forms
+*/
+
+.form-container {
+    outline: 2px solid whitesmoke;
+    color: white;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container * {
+    font-family: 'Lucida Console';
+
+    background-color: black;
+    outline: 2px solid whitesmoke;
+    color: whitesmoke;
+
+    margin: 5px;
+}
+
+#form-header{
+    outline: 0;
+}
+
+.login-reg-form {
+    outline: 0;
+
+    text-align: center;
+}
+
+.login-reg-form * {
+    font-size: large;
+}
+
+.form-input {
+    width: 95%;
+
+    text-align: center;
+}
+
+.form-input::placeholder {
+    color: whitesmoke;
+}
+
+.form-input:focus::placeholder {
+    color: transparent;
+}
+
+.form-button {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.form-button:hover {
+    text-decoration: none;
+}
+
+/*
+animations 
+*/
+
+@keyframes blinker {
+    50% {
+      opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0);
+        opacity: 0
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@keyframes ripple {
+    from {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+    
+    to {
+      opacity: 0;
+      transform: scale3d(1.1, 1.1 ,1);
+    }
+  }

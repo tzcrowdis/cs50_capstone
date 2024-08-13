@@ -1,0 +1,36 @@
+{% extends "game_search/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div id="tracked-container">
+    {% for tracked in tracked_list %}
+        <table class="tracked-table">
+            <tr>
+                <th>Query</th>
+                <th colspan="2" class="tracked-link" onclick="go_to_query('{{ tracked.query }}')">{{ tracked.query }}</th>
+            </tr>
+            <tr>
+                <th>Steam</th>
+                <td>{{ tracked.steam_title }}</td>
+                <td>{{ tracked.steam_price }}</td>
+            </tr>
+            <tr>
+                <th>MyAbandonware</th>
+                <td>{{ tracked.aband_title }}</td>
+                <td>{{ tracked.aband_price }}</td>
+            </tr>
+            <tr>
+                <th>GOG</th>
+                <td>{{ tracked.gog_title }}</td>
+                <td>{{ tracked.gog_price }}</td>
+            </tr>
+        </table>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'game_search/game_search.js' %}"></script>
+{% endblock %}

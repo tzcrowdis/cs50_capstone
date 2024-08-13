@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Game Search{% endblock %}</title>
+        <link href="{% static 'game_search/game_search.css' %}" rel="stylesheet">
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+        
+        <div id="body">
+
+            <div id="page-nav-container">
+                <a class="button" id="up" href="#top" title="Go to previous">^</a>
+                <a class="button" id="down" href="#middle" title="Go to next">v</a>
+            </div>
+
+            <div id="header">
+                <div class="nav-container">
+                    <!-- TODO add button to get back to search from login and register --> 
+                    {% if user.is_authenticated %}
+                        <a class="button" href="{% url 'tracked' %}">Tracked</a>
+
+                        <a class="button" href="{% url 'logout' %}">Log Out</a>
+                    {% else %}
+                        <a class="button" href="{% url 'login' %}">Log In</a>
+
+                        <a class="button" href="{% url 'register' %}">Register</a>
+                    {% endif %}
+                </div>
+
+                <!-- TODO change search displayed on request.path -->
+                <div class="search-container">
+                    <form id="search-form" action="{% url 'index' %}" method="get" autocomplete="off" onsubmit="display_loading()">
+                        <input type="search" id="search-input" name="game" placeholder=">>>Search for a Game<<<">
+                        <input type="submit" id="submit-search" value="->">
+                    </form>
+
+                    {% if user.is_authenticated %}
+                        <button id="track" onclick="track_results()">Track</button>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div id="loading">
+                <span id="dot1"> . </span><span id="dot2"> . </span><span id="dot3"> . </span>
+            </div>
+        
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

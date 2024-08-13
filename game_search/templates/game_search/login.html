@@ -1,0 +1,24 @@
+{% extends "game_search/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <div class="form-container">
+        <h2 id="form-header">Login</h2>
+
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+
+        <form action="{% url 'login' %}" method="post" class="login-reg-form">
+            {% csrf_token %}
+            <input  class="form-input" autofocus type="text" name="username" placeholder="Username">
+            <input class="form-input" type="password" name="password" placeholder="Password">
+            <input class="form-button" type="submit" value="Login">
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'game_search/game_search.js' %}"></script>
+{% endblock %}
